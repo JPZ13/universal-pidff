@@ -25,8 +25,6 @@ Universal Force Feedback (FFB) Driver for Moza, Cammus, VRS, and other devices. 
 %{?kmodtool_check}
 kmodtool  --target %{_target_cpu}  --repo %{repo} --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
-%autosetup -c
-
 for kernel_version in %{?kernel_versions} ; do
     cp -a %{name} _kmod_build_${kernel_version%%___*}
 done
